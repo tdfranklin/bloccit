@@ -32,5 +32,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Use Bootstrap-SASS as CSS framework
 gem 'bootstrap-sass'
-# Used for encrypting User passwords
+# Use for encrypting User passwords
 gem 'bcrypt'
+# Use to store Sendgrid credentials as environment variable
+gem 'figaro', '1.0'
