@@ -9,11 +9,17 @@
                 </div>
             <% end %>
             <div class="media-body">
-                <h2 class="media-heading"><%= @user.name %></h2>
-                <small>
-                    <%= pluralize(@user.posts.count, 'post') %>
-                    <%= pluralize(@user.comments.count, 'comment') %>
-                </small>
+                <% if user_post_count %>
+                    <h2 class="media-heading"><%= @user.name %></h2>
+                    <small>
+                        <%= pluralize(@user.posts.count, 'post') %>
+                        <%= pluralize(@user.comments.count, 'comment') %>
+                    </small>
+                <% else %>
+                    <h2 class="media-heading">
+                        <%= @user.name %> has not submitted any posts yet.
+                    </h2>
+                <% end %>
             </div>
         </div>
     </div>
@@ -24,3 +30,14 @@
 
 <h2>Comments</h2>
 <%= render @user.comments %>
+<h2>Favorites</h2>
+<div class="row">
+    <% @user.favorites.each do |fav| %>
+    <div class="col-md-1">
+        <%= image_tag @user.avatar_url(64), class: 'media-object' %>
+    </div>
+    <div class="col-md-3">
+        <%= render fav.post %>
+    </div>
+    <% end %>
+</div>
