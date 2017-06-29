@@ -38,3 +38,5 @@ gem 'bcrypt'
 gem 'figaro', '1.0'
 # Rails addon for Chrome
 gem 'meta_request'
+# Rails auto_link
+gem 'rails_autolink'
